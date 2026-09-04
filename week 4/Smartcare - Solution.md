@@ -146,5 +146,5 @@ The Stage 1 brief identifies three confirmed areas: **patients, practitioners an
 
 ## References
 
-- The formatting reference was taken from *https://mdstill.com/markdown-guide*.
+- The formatting reference was taken from 
 - I did used AI for taking ideas and how can I solve this and also I used it for proper formatting.
