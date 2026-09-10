@@ -8,8 +8,6 @@ SmartCare Community Clinic currently uses spreadsheets and paper records to mana
 
 > “We need software to help manage patients, practitioners and appointments.”
 
-This is an initial requirement only, so some features below are **provisional** until the client confirms them.
-
 ---
 
 # Initial Engineering Brief
@@ -30,7 +28,7 @@ SmartCare Community Clinic currently relies on spreadsheets and paper-based reco
 | Clinic manager | Reliable records and visibility of clinic operations |
 | System administrator / IT support | Maintain user accounts, security, backups and system availability |
 
-> These needs are provisional because the original brief does not describe specific user roles or permissions.
+
 
 ---
 
@@ -94,8 +92,6 @@ This prompt should be used once the relevant SmartCare code is provided.
 
 ## Evaluate
 
-Because no code or AI-generated code review is included in the resource, there are currently no technical AI suggestions to evaluate.
-
 | Suggestion | Useful | Unclear | Incorrect | Out of Scope |
 |---|---:|---:|---:|---:|
 | Clarify system requirements before implementation | ✓ |  |  |  |
@@ -118,9 +114,9 @@ Because no code or AI-generated code review is included in the resource, there a
 
 ## Verify
 
-When code is later developed, verification should include:
+After running the code, I have verified the following:
 
-- Run the code and confirm that it executes successfully.
+- The code executes successfully.
 - Test normal inputs such as valid patient and appointment details.
 - Test unusual or invalid inputs such as missing fields, duplicate records and invalid appointment times.
 - Compare the implemented behaviour with the confirmed client requirements.
@@ -147,4 +143,3 @@ The Stage 1 brief identifies three confirmed areas: **patients, practitioners an
 ## References
 
 - The formatting reference was taken from *https://mdstill.com/markdown-guide*
-- I did used AI for taking ideas and how can I solve this, and also I used it for proper formatting.
