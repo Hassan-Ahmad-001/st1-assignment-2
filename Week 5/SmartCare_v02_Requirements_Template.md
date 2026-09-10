@@ -19,7 +19,7 @@ maintainable system covering patients, practitioners, and appointments.
 - Per-patient appointment history
 - Practitioner's own schedule view
 
-### Out of scope (v1)
+### Out of scope 
 
 - Billing / insurance processing
 - Clinical notes, diagnosis, or treatment-plan features
@@ -55,7 +55,7 @@ maintainable system covering patients, practitioners, and appointments.
 - **FR-09:** The system shall maintain a history of past appointments for each patient, viewable by staff.
 - **FR-10:** The system shall allow a practitioner to view their own schedule of upcoming appointments.
 - **FR-11:** The system shall reject an appointment booking request that is missing a patient name, practitioner name, or appointment time.
-- **FR-12:** The system shall allow a receptionist to update an existing patient's contact details. *(Added after AI review — see Section 8.)*
+- **FR-12:** The system shall allow a receptionist to update an existing patient's contact details.
 
 ## 4. Non-Functional Requirements
 

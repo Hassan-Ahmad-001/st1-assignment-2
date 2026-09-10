@@ -143,3 +143,4 @@ The Stage 1 brief identifies three confirmed areas: **patients, practitioners an
 ## References
 
 - The formatting reference was taken from *https://mdstill.com/markdown-guide*
+[stage01_smartcare_solution.zip](../../../Downloads/stage01_smartcare_solution.zip)[stage01](../../../Downloads/stage01_smartcare_solution/stage01)

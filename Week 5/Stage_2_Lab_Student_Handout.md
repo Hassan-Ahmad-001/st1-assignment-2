@@ -1,4 +1,4 @@
-# SmartCare Requirements Specification v1.0
+# SmartCare Requirements Specification 
 ### Stage 2 Lab — AI OFF → AI ON → VERIFY
 
 This document consolidates the full Stage 2 deliverable: the requirements
@@ -13,6 +13,13 @@ SmartCare uses spreadsheets and paper records. Staff report duplicate
 bookings, difficulty finding patient information, inconsistent appointment
 status, and limited appointment history. Management wants a small,
 maintainable patient, practitioner, and appointment system.
+
+### The clinic is experiencing:
+
+- Duplicate appointment bookings.
+- Difficulty locating patient information quickly.
+- Inconsistent appointment status information.
+- Limited access to reliable appointment history.
 
 ## Part B – Stakeholders and Scope
 
@@ -35,7 +42,7 @@ maintainable patient, practitioner, and appointment system.
 - Per-patient appointment history
 - Practitioner's own schedule view
 
-### Out of scope (v1)
+### Out of scope 
 
 - Billing / insurance processing
 - Clinical notes, diagnosis, or treatment-plan features
@@ -121,33 +128,6 @@ freed time slot can be booked by another patient.
 **US-05:** As clinic management, I want to see a list of all appointments
 and their status so that I can monitor daily clinic activity.
 
-## Part H – SmartCare v0.2 Submission Summary
-
-This document contains: stakeholder analysis,
-in/out-of-scope and provisional features, 12 functional requirements
-(FR-01–FR-12), 6 non-functional requirements (NFR-01–NFR-06), and 5 user
-stories with Given-When-Then acceptance criteria for three, each including
-one negative scenario.
-
-Assumptions and open questions carried forward from this stage:
-
-1. Exact set of appointment status values (booked/completed/cancelled/no-show)
-   is assumed, not yet confirmed by the client.
-2. Whether patient contact-detail edits (FR-12) require an audit trail is
-   unconfirmed.
-3. Data persistence mechanism (file vs. database) for NFR-01 is not yet
-   decided — this is a design decision for a later stage, not a requirement
-   in itself.
-4. Access-control model (single staff role vs. role-based access, NFR-06) is
-   provisional pending client input.
-
-Selected AI review evidence supporting these requirements is documented in
-the "AI Requirements Review and Verification" section below.
--e 
----
-
-## AI Requirements Review and Verification
-
 ### Part F – AI Requirements Review (AI ON)
 
 **Prompt used** (UC-approved GenAI tool):
@@ -158,8 +138,6 @@ the "AI Requirements Review and Verification" section below.
 > every suggestion, state whether it is based on evidence or is only a
 > question/assumption requiring validation.
 
-*(The draft Part B–E requirements — before FR-12 existed — were pasted
-below the prompt.)*
 
 **AI reviewer's suggestions (summarised):**
 
@@ -195,6 +173,32 @@ the AI request made the verify step faster and less subjective.
 -e 
 ---
 
+## Part H – SmartCare v0.2
+
+This document contains: stakeholder analysis,
+in/out-of-scope and provisional features, 12 functional requirements
+(FR-01–FR-12), 6 non-functional requirements (NFR-01–NFR-06), and 5 user
+stories with Given-When-Then acceptance criteria for three, each including
+one negative scenario.
+
+Assumptions and open questions carried forward from this stage:
+
+1. Exact set of appointment status values (booked/completed/cancelled/no-show)
+   is assumed, not yet confirmed by the client.
+2. Whether patient contact-detail edits (FR-12) require an audit trail is
+   unconfirmed.
+3. Data persistence mechanism (file vs. database) for NFR-01 is not yet
+   decided — this is a design decision for a later stage, not a requirement
+   in itself.
+4. Access-control model (single staff role vs. role-based access, NFR-06) is
+   provisional pending client input.
+
+Selected AI review evidence supporting these requirements is documented in
+the "AI Requirements Review and Verification" section.
+---
+
+
+
 ## Reflection
 
 Before AI, I drafted stakeholders, scope, functional and non-functional
@@ -209,7 +213,7 @@ criterion for patient search ("clearly states no match") wasn't specific
 enough to actually test. Both were genuine gaps, and both were fixed
 without needing to invent new client needs.
 
-AI did overreach twice — suggesting an exportable management report and
+AI did overreach twice, suggesting an exportable management report and
 multi-language support. Neither appears anywhere in the client brief, and
 the AI review itself flagged both as assumptions rather than evidence, which
 made them easy to reject with confidence rather than guesswork.
@@ -221,5 +225,5 @@ the brief's complaint about "difficulty finding patient information."
 Requirements need evidence because a requirements document is a contract
 about what will be built and judged against later. If I accept a suggestion
 just because it sounds professional, I'm no longer describing the client's
-actual problem — I'm inventing scope the client never asked for and may not
+actual problem, I'm inventing scope the client never asked for and may not
 want to pay for or maintain.
