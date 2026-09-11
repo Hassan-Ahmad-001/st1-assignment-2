@@ -1,13 +1,8 @@
-# SmartCare Requirements Specification 
-### Stage 2 Lab — AI OFF → AI ON → VERIFY
-
-This document consolidates the full Stage 2 deliverable: the requirements
-specification (Parts A–E, H), the AI review and verification (Parts F–G),
-and the reflection.
+# SmartCare Requirements Engineering
 
 ---
 
-## Part A – Client Brief (context)
+## Part A – Client Brief
 
 SmartCare uses spreadsheets and paper records. Staff report duplicate
 bookings, difficulty finding patient information, inconsistent appointment
@@ -25,12 +20,12 @@ maintainable patient, practitioner, and appointment system.
 
 ### Stakeholders
 
-| Stakeholder | Interest / need |
-|---|---|
-| Receptionists / admin staff | Book, find, and update appointments quickly without duplicate or conflicting entries. |
-| Practitioners | Accurate, up-to-date view of their own schedule and which patients they're seeing. |
-| Patients | Appointments booked correctly, with a reliable record of past visits. |
-| Clinic management | Visibility into appointment activity and confidence the system is maintainable long-term. |
+| Stakeholder                 | Interest / need                                                                           |
+|-----------------------------|-------------------------------------------------------------------------------------------|
+| Receptionists / admin staff | Book, find, and update appointments quickly without duplicate or conflicting entries.     |
+| Practitioners               | Accurate, up-to-date view of their own schedule and which patients they're seeing.        |
+| Patients                    | Appointments booked correctly, with a reliable record of past visits.                     |
+| Clinic management           | Visibility into appointment activity and confidence the system is maintainable long-term. |
 
 ### In scope
 
@@ -38,11 +33,11 @@ maintainable patient, practitioner, and appointment system.
 - Creating practitioner records
 - Booking, rescheduling, and cancelling appointments
 - Preventing double-booking of a practitioner
-- Tracking appointment status (booked / completed / cancelled / no-show)
+- Tracking appointment status (booked / completed / canceled / no-show)
 - Per-patient appointment history
 - Practitioner's own schedule view
 
-### Out of scope 
+### Out of scope
 
 - Billing / insurance processing
 - Clinical notes, diagnosis, or treatment-plan features
@@ -58,31 +53,31 @@ maintainable patient, practitioner, and appointment system.
 
 ## Part C – Functional Requirements
 
-| ID | Requirement |
-|---|---|
-| FR-01 | The system shall allow a receptionist to create a new patient record with name and contact details. |
-| FR-02 | The system shall allow a receptionist to search for a patient by name. |
-| FR-03 | The system shall allow a receptionist to create a new practitioner record with name and specialty. |
-| FR-04 | The system shall allow a receptionist to book an appointment for a patient with a specific practitioner at a given date and time. |
+| ID    | Requirement                                                                                                                                             |
+|-------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| FR-01 | The system shall allow a receptionist to create a new patient record with name and contact details.                                                     |
+| FR-02 | The system shall allow a receptionist to search for a patient by name.                                                                                  |
+| FR-03 | The system shall allow a receptionist to create a new practitioner record with name and specialty.                                                      |
+| FR-04 | The system shall allow a receptionist to book an appointment for a patient with a specific practitioner at a given date and time.                       |
 | FR-05 | The system shall prevent a new appointment being booked for a practitioner at a time that conflicts with an existing appointment for that practitioner. |
-| FR-06 | The system shall allow a receptionist to view a list of all appointments for a given day. |
-| FR-07 | The system shall allow a receptionist to update an appointment's status (booked, completed, cancelled, no-show), including cancelling an appointment. |
-| FR-08 | The system shall allow a receptionist to reschedule an existing appointment to a new date and time. |
-| FR-09 | The system shall maintain a history of past appointments for each patient, viewable by staff. |
-| FR-10 | The system shall allow a practitioner to view their own schedule of upcoming appointments. |
-| FR-11 | The system shall reject an appointment booking request that is missing a patient name, practitioner name, or appointment time. |
-| FR-12 | The system shall allow a receptionist to update an existing patient's contact details. *(added after AI review — see "AI Requirements Review and Verification" below)* |
+| FR-06 | The system shall allow a receptionist to view a list of all appointments for a given day.                                                               |
+| FR-07 | The system shall allow a receptionist to update an appointment's status (booked, completed, cancelled, no-show), including cancelling an appointment.   |
+| FR-08 | The system shall allow a receptionist to reschedule an existing appointment to a new date and time.                                                     |
+| FR-09 | The system shall maintain a history of past appointments for each patient, viewable by staff.                                                           |
+| FR-10 | The system shall allow a practitioner to view their own schedule of upcoming appointments.                                                              |
+| FR-11 | The system shall reject an appointment booking request that is missing a patient name, practitioner name, or appointment time.                          |
+| FR-12 | The system shall allow a receptionist to update an existing patient's contact details. *(added after AI review — see Parts F and G below)*              |
 
 ## Part D – Non-Functional Requirements
 
-| ID | Requirement |
-|---|---|
-| NFR-01 | Recorded patient, practitioner, and appointment data shall not be lost if the application is restarted (data must persist between sessions). |
-| NFR-02 | A receptionist with no prior training on the system shall be able to complete a standard appointment booking in under five steps. |
-| NFR-03 | The system shall prevent duplicate or conflicting bookings at the data layer, not only through interface warnings, so invalid states cannot be saved. |
-| NFR-04 | Code shall be organised into clearly named, documented functions so new features can be added without rewriting existing logic. |
+| ID     | Requirement                                                                                                                                              |
+|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| NFR-01 | Recorded patient, practitioner, and appointment data shall not be lost if the application is restarted (data must persist between sessions).             |
+| NFR-02 | A receptionist with no prior training on the system shall be able to complete a standard appointment booking in under five steps.                        |
+| NFR-03 | The system shall prevent duplicate or conflicting bookings at the data layer, not only through interface warnings, so invalid states cannot be saved.    |
+| NFR-04 | Code shall be organised into clearly named, documented functions so new features can be added without rewriting existing logic.                          |
 | NFR-05 | Each core function (booking, cancelling, rescheduling, searching) shall be independently testable, with both normal and invalid inputs covered by tests. |
-| NFR-06 | Access to patient data shall be restricted to authorised clinic staff, consistent with the clinic's (to-be-confirmed) privacy obligations. |
+| NFR-06 | Access to patient data shall be restricted to authorised clinic staff, consistent with the clinic's (to-be-confirmed) privacy obligations.               |
 
 ## Part E – User Stories and Acceptance Criteria
 
@@ -113,22 +108,26 @@ I can quickly find their appointment history.
 **US-03:** As a practitioner, I want to view my schedule for the day so that
 I know which patients I am seeing and when.
 
+
 **US-04:** As a receptionist, I want to cancel an appointment so that the
 freed time slot can be booked by another patient.
 
 - **Given** an existing appointment with status "booked"
   **When** the receptionist cancels it
-  **Then** its status changes to "cancelled" and the time slot becomes
+  **Then** its status changes to "canceled" and the time slot becomes
   available for new bookings
 - *Negative:* **Given** an appointment already marked "completed"
   **When** the receptionist attempts to cancel it
   **Then** the system prevents the cancellation and explains that a
-  completed appointment cannot be cancelled
+  completed appointment cannot be canceled
 
 **US-05:** As clinic management, I want to see a list of all appointments
 and their status so that I can monitor daily clinic activity.
 
-### Part F – AI Requirements Review (AI ON)
+**US-06:** As a receptionist, I want to update an existing patient's contact
+details so that records stay accurate over time.
+
+## Part F – AI Requirements Review
 
 **Prompt used** (UC-approved GenAI tool):
 
@@ -139,51 +138,51 @@ and their status so that I can monitor daily clinic activity.
 > question/assumption requiring validation.
 
 
-**AI reviewer's suggestions (summarised):**
+**AI reviewer's suggestions:**
 
-| # | Suggestion | Evidence-based or assumption? |
-|---|---|---|
-| 1 | FR-05 (conflict prevention) and the "missing field" requirement overlap conceptually — consider clarifying that they test different failure modes. | Evidence-based — both requirements are about rejecting an invalid booking. |
-| 2 | The appointment status values (booked/completed/cancelled/no-show) are used in FR-07 and the acceptance criteria but never explicitly defined as a fixed list. | Evidence-based — the values are used before being defined anywhere in the spec. |
-| 3 | NFR-01 requires data to persist between sessions, but no functional requirement says how or where data is stored. | Evidence-based — an NFR references a capability no FR provides. |
-| 4 | US-02's negative scenario says the system should "clearly state" no match was found, but doesn't specify what that message should say — hard to test as written. | Evidence-based — acceptance criteria should be specific enough to verify. |
-| 5 | There is no requirement covering editing an existing patient's contact details, even though the client brief mentions "difficulty finding patient information," which implies records need to stay accurate over time. | Evidence-based — inferred from the client brief, not invented. |
-| 6 | Consider adding an exportable management report feature. | **Assumption / invention** — not mentioned anywhere in the client brief; the AI itself flagged this as something to validate with the client, not a confirmed need. |
-| 7 | Consider adding multi-language support for the interface. | **Assumption / invention** — no evidence in the client brief; flagged by the AI as speculative. |
-| 8 | NFR-02 ("under five steps") is measurable, but there is no equivalent measurable target for search or cancellation — reviewer asked whether similar usability targets are wanted for those actions. | Question requiring validation — not evidence of a defect, just a prompt to consider scope consistency. |
+| #  | Suggestion                                                                                                                                                                                                             | Evidence-based or assumption?                                                                                                                                       |
+|----|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1  | FR-05 (conflict prevention) and the "missing field" requirement overlap conceptually — consider clarifying that they test different failure modes.                                                                     | Evidence-based — both requirements are about rejecting an invalid booking.                                                                                          |
+| 2  | The appointment status values (booked/completed/cancelled/no-show) are used in FR-07 and the acceptance criteria but never explicitly defined as a fixed list.                                                         | Evidence-based — the values are used before being defined anywhere in the spec.                                                                                     |
+| 3  | NFR-01 requires data to persist between sessions, but no functional requirement says how or where data is stored.                                                                                                      | Evidence-based — an NFR references a capability no FR provides.                                                                                                     |
+| 4  | US-02's negative scenario says the system should "clearly state" no match was found, but doesn't specify what that message should say — hard to test as written.                                                       | Evidence-based — acceptance criteria should be specific enough to verify.                                                                                           |
+| 5  | There is no requirement covering editing an existing patient's contact details, even though the client brief mentions "difficulty finding patient information," which implies records need to stay accurate over time. | Evidence-based — inferred from the client brief, not invented.                                                                                                      |
+| 6  | Consider adding an exportable management report feature.                                                                                                                                                               | **Assumption / invention** — not mentioned anywhere in the client brief; the AI itself flagged this as something to validate with the client, not a confirmed need. |
+| 7  | Consider adding multi-language support for the interface.                                                                                                                                                              | **Assumption / invention** — no evidence in the client brief; flagged by the AI as speculative.                                                                     |
+| 8  | NFR-02 ("under five steps") is measurable, but there is no equivalent measurable target for search or cancellation — reviewer asked whether similar usability targets are wanted for those actions.                    | Question requiring validation — not evidence of a defect, just a prompt to consider scope consistency.                                                              |
 
-### Part G – Verify the AI Review
+## Part G – Verify the AI Review
 
-| # | AI suggestion | Decision | Evidence used to decide |
-|---|---|---|---|
-| 1 | FR-05 / missing-field overlap | **Modified** | Re-read both requirements: they trigger on different conditions (a time conflict vs. an absent field). Kept both as separate FRs (FR-05, FR-11) but confirmed neither is redundant — no change needed beyond re-checking wording. |
-| 2 | Undefined status values | **Accepted** | Client brief explicitly lists "inconsistent appointment status" as a current problem — the fix (defining a fixed status list in FR-07) directly addresses stated evidence, not just tidiness. |
-| 3 | FR/NFR persistence inconsistency | **Accepted** | Confirmed by re-reading NFR-01 and the FR list side by side — the gap is real. Rather than inventing a storage mechanism (a design decision, out of scope for a requirements doc), it was logged as an open question in Part H above. |
-| 4 | Vague "no match" message | **Accepted** | Re-read US-02's original negative scenario — it was genuinely untestable as written ("clearly states" is vague). Rewording still avoids prescribing exact UI text (a design decision), but requires the message to name that no match was found. |
-| 5 | Missing patient-edit requirement | **Accepted** | Checked the client brief directly: "difficulty finding patient information" implies stale/incorrect records are part of the problem, which an edit capability addresses. Added as FR-12. |
-| 6 | Exportable management report | **Rejected** | No mention in the client brief of reporting needs; the AI itself labelled this an assumption. Not added — would be scope creep without client confirmation. |
-| 7 | Multi-language support | **Rejected** | Same reasoning as #6 — no evidence in the brief, and the AI flagged it as speculative rather than evidence-based. |
-| 8 | Usability targets for other actions | **Unverified** | Reasonable question, but deciding specific step-count targets for every action needs input from actual reception staff, not a one-person judgement call. Logged as a question for the client rather than accepted or rejected outright. |
+| # | AI suggestion                       | Decision       | Explanation of Evidence used                                                                                                                                                                                                                     |
+|---|-------------------------------------|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 | FR-05 / missing-field overlap       | **Modified**   | Re-read both requirements: they trigger on different conditions (a time conflict vs. an absent field). Kept both as separate FRs (FR-05, FR-11) but confirmed neither is redundant — no change needed beyond re-checking wording.                |
+| 2 | Undefined status values             | **Accepted**   | Client brief explicitly lists "inconsistent appointment status" as a current problem — the fix (defining a fixed status list in FR-07) directly addresses stated evidence, not just tidiness.                                                    |
+| 3 | FR/NFR persistence inconsistency    | **Accepted**   | Confirmed by re-reading NFR-01 and the FR list side by side — the gap is real. Rather than inventing a storage mechanism (a design decision, out of scope for a requirements doc), it was logged as an open question in Part H below.            |
+| 4 | Vague "no match" message            | **Accepted**   | Re-read US-02's original negative scenario — it was genuinely untestable as written ("clearly states" is vague). Rewording still avoids prescribing exact UI text (a design decision), but requires the message to name that no match was found. |
+| 5 | Missing patient-edit requirement    | **Accepted**   | Checked the client brief directly: "difficulty finding patient information" implies stale/incorrect records are part of the problem, which an edit capability addresses. Added as FR-12 and US-06.                                               |
+| 6 | Exportable management report        | **Rejected**   | No mention in the client brief of reporting needs; the AI itself labelled this an assumption. Not added — would be scope creep without client confirmation.                                                                                      |
+| 7 | Multi-language support              | **Rejected**   | Same reasoning as #6 — no evidence in the brief, and the AI flagged it as speculative rather than evidence-based.                                                                                                                                |
+| 8 | Usability targets for other actions | **Unverified** | Reasonable question, but deciding specific step-count targets for every action needs input from actual reception staff, not a one-person judgement call. Logged as a question for the client rather than accepted or rejected outright.          |
 
-**Pattern in the review:** every suggestion the AI itself labelled
+**Pattern in the review:** Every suggestion the AI itself labeled
 "evidence-based" traced back to a sentence in the original client brief.
 The two suggestions it could not tie to the brief (#6, #7) were exactly the
-two rejected here — confirming that flagging evidence vs. assumption during
+two rejected here, confirming that flagging evidence vs. assumption during
 the AI request made the verify step faster and less subjective.
--e 
+
 ---
 
-## Part H – SmartCare v0.2
+## Part H – SmartCare v0.2 (Finalization)
 
 This document contains: stakeholder analysis,
 in/out-of-scope and provisional features, 12 functional requirements
-(FR-01–FR-12), 6 non-functional requirements (NFR-01–NFR-06), and 5 user
+(FR-01–FR-12), 6 non-functional requirements (NFR-01–NFR-06), and 6 user
 stories with Given-When-Then acceptance criteria for three, each including
 one negative scenario.
 
 Assumptions and open questions carried forward from this stage:
 
-1. Exact set of appointment status values (booked/completed/cancelled/no-show)
+1. Exact set of appointment status values (booked/completed/canceled/no-show)
    is assumed, not yet confirmed by the client.
 2. Whether patient contact-detail edits (FR-12) require an audit trail is
    unconfirmed.
@@ -194,10 +193,9 @@ Assumptions and open questions carried forward from this stage:
    provisional pending client input.
 
 Selected AI review evidence supporting these requirements is documented in
-the "AI Requirements Review and Verification" section.
+Parts F and G.
+
 ---
-
-
 
 ## Reflection
 

@@ -6,6 +6,6 @@ AI helped me understand how the Python function worked, why a dictionary was use
 
 AI did make assumptions. For example, an AI-generated solution could add features such as extra validation, menus, databases or interfaces even though the task specifically required a simple beginner-friendly prototype without a database or GUI. Therefore, I did not automatically accept every suggestion.
 
-I verified the AI output by reading the code, running it, and testing normal and unusual inputs. I checked a normal appointment, a blank patient name, duplicate practitioner/time bookings, and values such as `None`.
+I verified the AI output by reading the code, running it, and testing normal and unusual inputs. The one improvement I chose to make was refusing a booking when the patient name is empty, because an appointment with no patient cannot be used by reception and is better stopped than found later.
 
 Engineering work still remained with me. I had to understand the requirements, decide what was in scope, test the program, identify risks and limitations, and decide whether suggested improvements were appropriate. AI was useful as a tutor, but I remained responsible for the final design and verification.
